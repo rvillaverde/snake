@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Space+Mono&display=swap');
+
+* {
+  --black: #212529;
+  --medium-gray: #adb5bd;
+  --light-gray: #dee2e6;
+  --lighter-gray: #e9ecef;
+  --white: #f8f9fa;
+
+  --cell-size: 20px;
+
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--black);
+  background-color: var(--medium-gray);
+  font-family: Lato, sans-serif;
+  justify-content: center;
+  margin: 0;
+  padding: 60px 0;
+  display: flex;
+  min-height: 100vh;
+}
+
+main {
+  background-color: var(--white);
+  width: max-content;
+  height: max-content;
+  padding: 20px;
+}
+
+h1 {
+  margin: 0;
+}
+
+.header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+}
+
+.start-button {
+  background-color: var(--white);
+  border-radius: 4px;
+  border: 1px solid var(--black);
+  cursor: pointer;
+  letter-spacing: 2px;
+  min-width: 120px;
+  padding: 12px 24px;
+  text-transform: uppercase;
+  transition: letter-spacing 300ms;
+}
+
+.start-button:hover {
+  letter-spacing: 3px;
+}
+
+.start-button:disabled {
+  pointer-events: none;
+  border: 1px solid var(--light-gray);
+  color: var(--light-gray);
+}
+
+.legend {
+  color: var(--medium-gray);
+  margin: 0;
+}
+
+.snake-container {
+  display: flex;
+  justify-content: center;
+  padding: 24px 0;
+}
+
+.snake {
+  border: 2px solid var(--medium-gray);
+  position: relative;
+}
+
+.snake > * {
+  display: grid;
+}
+
+.snake .matrix {
+  left: 0;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+}
+
+.snake .matrix .cell.filled {
+  background-color: var(--black);
+}
+
+.snake .matrix .cell.food {
+  background-color: var(--medium-gray);
+  border-radius: 50%;
+}
+
+.snake .background {
+  position: relative;
+  z-index: 0;
+}
+
+.snake .background .box {
+  border: 1px solid var(--lighter-gray);
+}
+
+.snake .game-over {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  z-index: 8;
+}
+
+.snake .game-over::before {
+  background-color: var(--white);
+  content: "";
+  display: block;
+  opacity: 70%;
+}
+
+.snake .game-over,
+.snake .game-over:before {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.snake .game-over .content {
+  position: relative;
+}
+
+.snake .game-over .content h2 {
+  text-transform: uppercase;
+}
+
+.snake .game-over .content h2,
+.snake .game-over .content p {
+  text-align: center;
+}
